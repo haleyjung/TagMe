@@ -18,7 +18,6 @@ const MyPager = () => {
         <View style={styles.page} key="2">
           {/* <Text>Second page</Text> */}
           <AddItem />
-          <Text>Swipe ➡️</Text>
         </View>
         <View style={styles.page} key="3">
           {/* <Text>Third page</Text> */}
