@@ -15,3 +15,4 @@ web-build/
 
 #config
 *config.js
+*environment.js
