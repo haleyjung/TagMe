@@ -1,41 +1,30 @@
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import PagerView from 'react-native-pager-view';
+import * as React from "react";
+import { Text, SafeAreaView, StyleSheet } from "react-native";
+import Constants from "expo-constants";
 
-import Home from './src/screens/Home';
-import AddItem from './src/screens/AddItem';
-import ListItem from './src/screens/ListItem';
+import ImagePickerComponent from "./src/components/ImagePickerComponent";
+import callGoogleVisionAsync from "./src/config/helperFunction";
 
-const MyPager = () => {
+export default function App() {
   return (
-    <View style={{ flex: 1 }}>
-      <PagerView style={styles.viewPager} initialPage={0}>
-        <View style={styles.page} key="1">
-          {/* <Text>First page</Text> */}
-          <Home />
-          <Text>Swipe ➡️</Text>
-        </View>
-        <View style={styles.page} key="2">
-          {/* <Text>Second page</Text> */}
-          <AddItem />
-        </View>
-        <View style={styles.page} key="3">
-          {/* <Text>Third page</Text> */}
-          <ListItem />
-        </View>
-      </PagerView>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ImagePickerComponent onSubmit={callGoogleVisionAsync} />
+    </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  viewPager: {
+  container: {
     flex: 1,
+    // justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8,
   },
-  page: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
-
-export default MyPager;
