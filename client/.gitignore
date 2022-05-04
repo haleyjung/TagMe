@@ -17,4 +17,4 @@ web-build/
 *config.js
 *environment.js
 *db.js
-*helperFunction.js
+*helpers.js

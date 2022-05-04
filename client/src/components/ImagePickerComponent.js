@@ -14,6 +14,7 @@ import {
 export default function ImagePickerComponent({ onSubmit }) {
   const [image, setImage] = useState(null);
   const [text, setText] = useState(null);
+  let tagList;
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -29,24 +30,30 @@ export default function ImagePickerComponent({ onSubmit }) {
     }
   };
 
-  let tagList;
   if (Array.isArray(text) && text.length > 1) {
     tagList = text.map((tag, i) => {
-      return <Text styles={styles.tagText} key={i}>#{tag}</Text>;
+      return <Text style={styles.tagText} key={i}>
+        <Text style={{ fontWeight: 'bold' }}>#</Text>
+        {tag}
+      </Text>;
     });
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.headContainer}>
+      {/* <View style={styles.headContainer}>
         <Text style={styles.Heading}>Recommended Hashtags</Text>
-      </View>
+      </View> */}
 
-      <View style={styles.imgContainer}>
+      <View style={[styles.imgContainer, styles.imgShadowProp]}>
+        <Image
+          source={require('../../assets/addImg.png')}
+          style={styles.defaultBgImg}
+        />
         {image && (
           <Image
             source={{ uri: image }}
-            style={{ width: '90%', height: '80%', resizeMode: 'contain' }}
+            style={styles.loadedImg}
           />
         )}
       </View>
@@ -68,25 +75,48 @@ const styles = StyleSheet.create({
     width: 350,
     justifyContent: 'center',
   },
-  headContainer: {
-    flex: 0.3,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
+  // headContainer: {
+  //   flex: 0.3,
+  //   justifyContent: 'flex-start',
+  //   alignItems: 'center',
+  // },
+  // Heading: {
+  //   fontSize: 20,
+  // },
   imgContainer: {
     flex: 4,
+    marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    // borderColor: 'rgba(0, 0, 0, .2)',
+    // borderWidth: 2,
+    backgroundColor: '#fff',
+  },
+  imgShadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+  defaultBgImg: {
+    width: '60%',
+    height: '60%',
+    resizeMode: 'contain',
+    position: 'absolute',
+    opacity: 0.3
+  },
+  loadedImg: {
+    width: '90%',
+    height: '80%',
+    resizeMode: 'contain'
   },
   tagContainer: {
     flex: 2,
     justifyContent: 'center',
     paddingLeft: 30,
-    backgroundColor: '#49beb7',
   },
   tagText: {
-
+    color: 'purple'
   },
   buttonDesign: {
     height: 50,
@@ -110,8 +140,5 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     fontWeight: 'bold',
     color: '#fff'
-  },
-  Heading: {
-    fontSize: 20,
   },
 });
