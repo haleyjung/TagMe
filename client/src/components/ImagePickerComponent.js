@@ -41,11 +41,8 @@ export default function ImagePickerComponent({ onSubmit }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <View style={styles.headContainer}>
-        <Text style={styles.Heading}>Recommended Hashtags</Text>
-      </View> */}
-
       <View style={[styles.imgContainer, styles.imgShadowProp]}>
+        <Text style={styles.defaultBgText}>SAY MEOW</Text>
         <Image
           source={require('../../assets/addImg.png')}
           style={styles.defaultBgImg}
@@ -75,21 +72,11 @@ const styles = StyleSheet.create({
     width: 350,
     justifyContent: 'center',
   },
-  // headContainer: {
-  //   flex: 0.3,
-  //   justifyContent: 'flex-start',
-  //   alignItems: 'center',
-  // },
-  // Heading: {
-  //   fontSize: 20,
-  // },
   imgContainer: {
     flex: 4,
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    // borderColor: 'rgba(0, 0, 0, .2)',
-    // borderWidth: 2,
     backgroundColor: '#fff',
   },
   imgShadowProp: {
@@ -97,6 +84,13 @@ const styles = StyleSheet.create({
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
+  },
+  defaultBgText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    opacity: 0.2,
+    position: 'absolute',
+    paddingBottom: 220
   },
   defaultBgImg: {
     width: '60%',
