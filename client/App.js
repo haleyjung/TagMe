@@ -32,7 +32,7 @@ export default function App() {
         <Stack.Screen
           name="Collection"
           component={Collection}
-          options={{ title: 'Your Collection' }}
+          options={{ title: 'Hashtag Collection' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

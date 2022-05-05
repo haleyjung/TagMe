@@ -186,8 +186,6 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 5,
     width: 160,
-    // alignItems: 'center',
-    // justifyContent: 'center'
   },
   tagText: {
     color: '#000',
