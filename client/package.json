@@ -15,6 +15,7 @@
     "@react-native-firebase/database": "^14.9.1",
     "@react-native-firebase/storage": "^14.9.1",
     "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native-stack": "^6.6.2",
     "@rneui/base": "^4.0.0-rc.2",
     "@rneui/themed": "^4.0.0-rc.2",
     "axios": "^0.27.2",
