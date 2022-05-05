@@ -11079,6 +11079,11 @@
   "resolved" "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.4.0.tgz"
   "version" "0.4.0"
 
+"react-native-typing-text@^0.0.3":
+  "integrity" "sha1-DAcHd3qNfioki7Gvf0H8U79FmUk="
+  "resolved" "https://registry.npmjs.org/react-native-typing-text/-/react-native-typing-text-0.0.3.tgz"
+  "version" "0.0.3"
+
 "react-native-vector-icons@^9.1.0":
   "integrity" "sha512-2AHZ/h9d/+rC0odz+OwbGNlc1Lik/pHhSixn4HfC8RtQ8CxfSBZ6gg7bTLcZhdSvZN+ZEGi30Fj+ZnOSQy+smg=="
   "resolved" "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-9.1.0.tgz"

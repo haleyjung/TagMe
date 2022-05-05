@@ -9,7 +9,6 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
-// import storage from '@react-native-firebase/storage';
 
 import { addToFirebase } from '../config/helpers';
 
@@ -81,7 +80,7 @@ export default function ImageUploader({ onSubmit }) {
             style={[styles.buttonDesign, styles.buttonShadowProp]}
             onPress={uploadImage}
           >
-            <Text style={styles.buttonText}>UPLOAD A PHOTO</Text>
+            <Text style={styles.buttonText}>UPLOAD MORE PHOTO</Text>
           </TouchableOpacity>
         );
         break;
