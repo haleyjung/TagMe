@@ -7,7 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import TypingText from '../components/TypingText';
+import AnimatedText from '../components/AnimatedText';
 export default class Home extends Component {
   render() {
     return (
@@ -22,7 +22,7 @@ export default class Home extends Component {
               source={require('../../assets/home.png')}
             />
 
-            <TypingText text="#TagMe" />
+            <AnimatedText text="#TagMe" />
 
             <Text style={styles.description}>
               Extract Hashtags From Your Photos

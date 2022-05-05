@@ -67,8 +67,8 @@ const helpers = {
 
   fetchFromFirebase: async () => {
     try {
-      const data = await fetch(DB_URL);
-      console.log(data)
+      const response = await fetch(DB_URL);
+      return await response.json();
     } catch (err) {
       console.error(err);
     }

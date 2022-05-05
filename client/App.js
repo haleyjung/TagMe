@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './src/screens/Home';
 import TagGenerator from './src/screens/TagGenerator';
-import ImgGallery from './src/screens/ImgGallery';
+import Collection from './src/screens/Collection';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,8 +30,8 @@ export default function App() {
           options={{ title: 'Hashtag Extractor' }}
         />
         <Stack.Screen
-          name="ImgGallery"
-          component={ImgGallery}
+          name="Collection"
+          component={Collection}
           options={{ title: 'Your Collection' }}
         />
       </Stack.Navigator>

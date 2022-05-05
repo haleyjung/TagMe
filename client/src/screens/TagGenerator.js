@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Text, SafeAreaView, StyleSheet, ImageBackground, } from "react-native";
-import Constants from "expo-constants";
+import { Text, SafeAreaView, StyleSheet, ImageBackground } from "react-native";
 
 import ImageUploader from "../components/ImageUploader";
 import helpers from "../config/helpers";
