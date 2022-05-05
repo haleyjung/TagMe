@@ -39,8 +39,7 @@ export default function ImageUploader({ onSubmit }) {
       return (
         <View style={styles.tagWrapper} key={i}>
           <Text style={styles.tagText}>
-            <Text style={{ fontWeight: 'bold' }}>#</Text>
-            {tag}
+            #{tag}
           </Text>
         </View>
       );
@@ -72,7 +71,7 @@ export default function ImageUploader({ onSubmit }) {
             style={[styles.saveButtonDesign, styles.buttonShadowProp]}
             onPress={saveImageWithTags}
           >
-            <Text style={styles.buttonText}>SAVE</Text>
+            <Text style={styles.buttonText}>SAVE SELECTED TAGS</Text>
           </TouchableOpacity>
         );
         break;
@@ -149,23 +148,25 @@ const styles = StyleSheet.create({
   },
   tagContainer: {
     flex: 3,
-    margin: 10,
+    margin: 5,
     justifyContent: 'center',
     flexWrap: 'wrap',
     alignContent: 'space-between',
   },
   tagWrapper: {
-    borderColor: 'red',
+    backgroundColor: 'rgba(255,182,193, .4)',
+    borderColor: 'rgba(255,182,193, .4)',
+    borderRadius: 5,
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderWidth: 2,
     padding: 5,
     margin: 5,
-    width: 150,
-    alignItems: 'center',
-    justifyContent: 'center'
+    width: 160,
+    // alignItems: 'center',
+    // justifyContent: 'center'
   },
   tagText: {
-    color: '#000',
+    color: '#000'
   },
   buttonDesign: {
     height: 50,
