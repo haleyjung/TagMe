@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
+// import storage from '@react-native-firebase/storage';
 
 import { addToFirebase } from '../config/helpers';
 

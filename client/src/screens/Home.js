@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, Text, StyleSheet, ImageBackground } from 'react-native';
 import TypingText from 'react-native-typing-text';
-
 export default class Home extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View style={{ paddingBottom: 100 }}>
-          <Image
-            style={{width: 200, height: 200}}
-            source={require('../../assets/home.png')}></Image>
+      <ImageBackground
+        style={{width: 400, height: '100%'}}
+        source={require('../../assets/giphy.gif')}>
 
-          <TypingText text = "#TagMe"/>
+        <View style={styles.container}>
 
-          <Text style={styles.description}>
-            Extract Hashtags From Your Photos
-          </Text>
+          <View>
+            <Image
+              style={{width: 200, height: 200}}
+              source={require('../../assets/home.png')}></Image>
+
+            <TypingText text = "#TagMe"/>
+
+            <Text style={styles.description}>
+              Extract Hashtags From Your Photos
+            </Text>
+          </View>
+
+          {/* <View>
+            <Text>Get Started</Text>
+          </View> */}
+
         </View>
 
-        <View>
-          <Text>Get Started</Text>
-        </View>
-        {/* <Text>Swipe ➡️</Text> */}
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -31,9 +37,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
   description: {
-    marginTop: 10
+    marginTop: 10,
+    fontSize: 15,
+    color: 'rgba(0,0,0,0.5)'
   }
 });
