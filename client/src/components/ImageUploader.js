@@ -37,10 +37,12 @@ export default function ImageUploader({ onSubmit }) {
   if (Array.isArray(text) && text.length > 1) {
     tagList = text.map((tag, i) => {
       return (
-        <Text style={styles.tagText} key={i}>
-          <Text style={{ fontWeight: 'bold' }}>#</Text>
-          {tag}
-        </Text>
+        <View style={styles.tagWrapper} key={i}>
+          <Text style={styles.tagText}>
+            <Text style={{ fontWeight: 'bold' }}>#</Text>
+            {tag}
+          </Text>
+        </View>
       );
     });
   }
@@ -146,9 +148,21 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   tagContainer: {
-    flex: 2,
+    flex: 3,
+    margin: 10,
     justifyContent: 'center',
-    paddingLeft: 30,
+    flexWrap: 'wrap',
+    alignContent: 'space-between',
+  },
+  tagWrapper: {
+    borderColor: 'red',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    padding: 5,
+    margin: 5,
+    width: 150,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   tagText: {
     color: '#000',
