@@ -2,13 +2,13 @@ import * as React from "react";
 import { Text, SafeAreaView, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 
-import ImagePickerComponent from "../components/ImagePickerComponent";
+import ImageUploader from "../components/ImageUploader";
 import helpers from "../config/helpers";
 
 export default function TagGenerator() {
   return (
     <SafeAreaView style={styles.container}>
-      <ImagePickerComponent onSubmit={helpers.callGoogleVisionAsync} />
+      <ImageUploader onSubmit={helpers.callGoogleVisionAsync} />
     </SafeAreaView>
   );
 }

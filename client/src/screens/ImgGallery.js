@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View, Image, Text, StyleSheet } from 'react-native';
 
-export default class Home extends Component {
+export default class ImgGallery extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>

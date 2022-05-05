@@ -9,14 +9,17 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
-// import styled from 'styled-components/native';
+// import storage from '@react-native-firebase/storage';
 
-export default function ImagePickerComponent({ onSubmit }) {
+import { addToFirebase } from '../config/helpers';
+
+export default function ImageUploader({ onSubmit }) {
   const [image, setImage] = useState(null);
   const [text, setText] = useState(null);
+  const [loadStatus, setLoadStatus] = useState('Image not loaded');
   let tagList;
 
-  const pickImage = async () => {
+  const uploadImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       base64: true,
@@ -27,17 +30,64 @@ export default function ImagePickerComponent({ onSubmit }) {
       setText('Loading..');
       const responseData = await onSubmit(result.base64);
       setText(responseData);
+      setLoadStatus('Image loaded');
     }
   };
 
   if (Array.isArray(text) && text.length > 1) {
     tagList = text.map((tag, i) => {
-      return <Text style={styles.tagText} key={i}>
-        <Text style={{ fontWeight: 'bold' }}>#</Text>
-        {tag}
-      </Text>;
+      return (
+        <Text style={styles.tagText} key={i}>
+          <Text style={{ fontWeight: 'bold' }}>#</Text>
+          {tag}
+        </Text>
+      );
     });
   }
+
+  const saveImageWithTags = async () => {
+    console.log('saved');
+    setLoadStatus('Image saved');
+  };
+
+  const renderButton = (loadStatus) => {
+    let button;
+    switch (loadStatus) {
+      case 'Image not loaded':
+        button = (
+          <TouchableOpacity
+            style={[styles.buttonDesign, styles.buttonShadowProp]}
+            onPress={uploadImage}
+          >
+            <Text style={styles.buttonText}>UPLOAD A PHOTO</Text>
+          </TouchableOpacity>
+        );
+        break;
+
+      case 'Image loaded':
+        button = (
+          <TouchableOpacity
+            style={[styles.saveButtonDesign, styles.buttonShadowProp]}
+            onPress={saveImageWithTags}
+          >
+            <Text style={styles.buttonText}>SAVE</Text>
+          </TouchableOpacity>
+        );
+        break;
+
+      case 'Image saved':
+        button = (
+          <TouchableOpacity
+            style={[styles.buttonDesign, styles.buttonShadowProp]}
+            onPress={uploadImage}
+          >
+            <Text style={styles.buttonText}>UPLOAD A PHOTO</Text>
+          </TouchableOpacity>
+        );
+        break;
+    }
+    return button;
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,21 +97,12 @@ export default function ImagePickerComponent({ onSubmit }) {
           source={require('../../assets/addImg.png')}
           style={styles.defaultBgImg}
         />
-        {image && (
-          <Image
-            source={{ uri: image }}
-            style={styles.loadedImg}
-          />
-        )}
+        {image && <Image source={{ uri: image }} style={styles.loadedImg} />}
       </View>
 
       <View style={styles.tagContainer}>{tagList}</View>
 
-      <View>
-        <TouchableOpacity style={[styles.buttonDesign, styles.buttonShadowProp]} onPress={pickImage}>
-          <Text style={styles.buttonText}>UPLOAD A PHOTO</Text>
-        </TouchableOpacity>
-      </View>
+      <View>{renderButton(loadStatus)}</View>
     </SafeAreaView>
   );
 }
@@ -81,7 +122,7 @@ const styles = StyleSheet.create({
   },
   imgShadowProp: {
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
@@ -90,19 +131,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     opacity: 0.2,
     position: 'absolute',
-    paddingBottom: 220
+    paddingBottom: 220,
   },
   defaultBgImg: {
     width: '60%',
     height: '60%',
     resizeMode: 'contain',
     position: 'absolute',
-    opacity: 0.3
+    opacity: 0.3,
   },
   loadedImg: {
     width: '90%',
     height: '80%',
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   tagContainer: {
     flex: 2,
@@ -110,13 +151,24 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
   },
   tagText: {
-    color: 'purple'
+    color: '#000',
   },
   buttonDesign: {
     height: 50,
     width: '100%',
-    backgroundColor: '#FFA700',
-    borderColor: '#FFA700',
+    backgroundColor: '#F5B873',
+    borderColor: '#F5B873',
+    borderRadius: 20,
+    borderWidth: 3,
+    borderStyle: 'solid',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  saveButtonDesign: {
+    height: 50,
+    width: '100%',
+    backgroundColor: '#FA8C69',
+    borderColor: '#FA8C69',
     borderRadius: 20,
     borderWidth: 3,
     borderStyle: 'solid',
@@ -125,7 +177,7 @@ const styles = StyleSheet.create({
   },
   buttonShadowProp: {
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
   },
@@ -133,6 +185,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    color: '#fff'
+    color: '#fff',
   },
 });
