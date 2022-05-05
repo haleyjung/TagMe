@@ -29,7 +29,11 @@ export default function App() {
           component={TagGenerator}
           options={{ title: 'Hashtag Extractor' }}
         />
-        <Stack.Screen name="ImgGallery" component={ImgGallery} />
+        <Stack.Screen
+          name="ImgGallery"
+          component={ImgGallery}
+          options={{ title: 'Your Collection' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

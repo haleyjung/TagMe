@@ -15,7 +15,4 @@ web-build/
 
 #config
 *config.js
-*environment.js
-*db.js
-*helpers.js
 *TypingText.js
