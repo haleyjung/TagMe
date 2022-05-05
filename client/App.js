@@ -9,7 +9,7 @@ import ImgGallery from './src/screens/ImgGallery';
 
 const Stack = createNativeStackNavigator();
 
-const MyPager = () => {
+export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -34,11 +34,3 @@ const MyPager = () => {
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  viewPager: {
-    flex: 1,
-  },
-});
-
-export default MyPager;
