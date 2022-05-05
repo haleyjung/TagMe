@@ -5,14 +5,18 @@ import Constants from "expo-constants";
 import ImageUploader from "../components/ImageUploader";
 import helpers from "../config/helpers";
 
-export default function TagGenerator() {
+export default function TagGenerator({ navigation }) {
   return (
     <ImageBackground
       style={{ width: '100%', height: '100%' }}
       source={require('../../assets/giphy0.gif')}
     >
       <SafeAreaView style={styles.container}>
-        <ImageUploader onSubmit={helpers.callGoogleVisionAsync} />
+        <ImageUploader
+          onImageUpload={helpers.callGoogleVisionAsync}
+          onSave={helpers.addToFirebase}
+          navigation={navigation}
+        />
       </SafeAreaView>
     </ImageBackground>
   );

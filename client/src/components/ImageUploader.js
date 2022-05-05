@@ -1,7 +1,6 @@
 import * as ImagePicker from 'expo-image-picker';
 import React, { useState, useEffect } from 'react';
 import {
-  Button,
   Image,
   View,
   Text,
@@ -9,11 +8,10 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
-// import storage from '@react-native-firebase/storage';
+import { Button } from '@rneui/themed';
+import ImgGallery from '../screens/ImgGallery';
 
-import { addToFirebase } from '../config/helpers';
-
-export default function ImageUploader({ onSubmit }) {
+export default function ImageUploader({ onImageUpload, onSave, navigation }) {
   const [image, setImage] = useState(null);
   const [text, setText] = useState(null);
   const [loadStatus, setLoadStatus] = useState('Image not loaded');
@@ -28,7 +26,7 @@ export default function ImageUploader({ onSubmit }) {
     if (!result.cancelled) {
       setImage(result.uri);
       setText('Loading..');
-      const responseData = await onSubmit(result.base64);
+      const responseData = await onImageUpload(result.base64);
       setText(responseData);
       setLoadStatus('Image loaded');
     }
@@ -38,17 +36,19 @@ export default function ImageUploader({ onSubmit }) {
     tagList = text.map((tag, i) => {
       return (
         <View style={styles.tagWrapper} key={i}>
-          <Text style={styles.tagText}>
-            #{tag}
-          </Text>
+          <Text style={styles.tagText}>#{tag}</Text>
         </View>
       );
     });
   }
 
   const saveImageWithTags = async () => {
-    console.log('saved');
-    setLoadStatus('Image saved');
+    let imgTagsToSave = {
+      image: image,
+      tags: text,
+    };
+    const responseData = await onSave(imgTagsToSave);
+    setLoadStatus('Saved');
   };
 
   const renderButton = (loadStatus) => {
@@ -71,12 +71,12 @@ export default function ImageUploader({ onSubmit }) {
             style={[styles.saveButtonDesign, styles.buttonShadowProp]}
             onPress={saveImageWithTags}
           >
-            <Text style={styles.buttonText}>SAVE SELECTED TAGS</Text>
+            <Text style={styles.buttonText}>SAVE</Text>
           </TouchableOpacity>
         );
         break;
 
-      case 'Image saved':
+      case 'Saved':
         button = (
           <TouchableOpacity
             style={[styles.buttonDesign, styles.buttonShadowProp]}
@@ -103,7 +103,31 @@ export default function ImageUploader({ onSubmit }) {
 
       <View style={styles.tagContainer}>{tagList}</View>
 
-      <View>{renderButton(loadStatus)}</View>
+      <View style={styles.buttonsContainer}>
+        {renderButton(loadStatus)}
+        <TouchableOpacity
+          style={[styles.galleryButton, styles.buttonShadowProp]}
+        >
+          <Button
+              icon={{
+                name: 'user',
+                type: 'font-awesome',
+                size: 25,
+                color: 'white',
+              }}
+              iconRight
+              buttonStyle={{
+                backgroundColor: '#F5B873',
+                borderColor: 'transparent',
+                borderWidth: 3,
+                borderRadius: 15,
+                height: 50,
+                width: 80,
+              }}
+              onPress={() => navigation.navigate('ImgGallery')}
+            />
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -166,14 +190,18 @@ const styles = StyleSheet.create({
     // justifyContent: 'center'
   },
   tagText: {
-    color: '#000'
+    color: '#000',
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    alignContent: 'space-around',
   },
   buttonDesign: {
     height: 50,
-    width: '100%',
+    width: '70%',
     backgroundColor: '#F5B873',
     borderColor: '#F5B873',
-    borderRadius: 20,
+    borderRadius: 15,
     borderWidth: 3,
     borderStyle: 'solid',
     alignItems: 'center',
@@ -181,10 +209,10 @@ const styles = StyleSheet.create({
   },
   saveButtonDesign: {
     height: 50,
-    width: '100%',
+    width: '70%',
     backgroundColor: '#FA8C69',
     borderColor: '#FA8C69',
-    borderRadius: 20,
+    borderRadius: 15,
     borderWidth: 3,
     borderStyle: 'solid',
     alignItems: 'center',
@@ -202,4 +230,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  galleryButton: {
+    marginLeft: '5%'
+  }
 });
