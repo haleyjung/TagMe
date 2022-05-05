@@ -12,13 +12,13 @@ export default class Home extends Component {
   render() {
     return (
       <ImageBackground
-        style={{ width: 380, height: '100%' }}
+        style={{ width: '100%', height: '100%' }}
         source={require('../../assets/giphy.gif')}
       >
         <View style={styles.container}>
           <View>
             <Image
-              style={{ width: 200, height: 200, marginTop: -50 }}
+              style={{ width: 230, height: 230,  }}
               source={require('../../assets/home.png')}
             />
 
