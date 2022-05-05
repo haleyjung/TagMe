@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Button } from '@rneui/themed';
-import ImgGallery from '../screens/ImgGallery';
+import Collection from '../screens/Collection';
 
 export default function ImageUploader({ onImageUpload, onSave, navigation }) {
   const [image, setImage] = useState(null);
@@ -124,7 +124,7 @@ export default function ImageUploader({ onImageUpload, onSave, navigation }) {
                 height: 50,
                 width: 80,
               }}
-              onPress={() => navigation.navigate('ImgGallery')}
+              onPress={() => navigation.navigate('Collection')}
             />
         </TouchableOpacity>
       </View>
