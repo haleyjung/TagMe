@@ -1,7 +1,7 @@
 <div align="center">
 <h1 align="center">#TagMe</h1>
 <br />
-  <img src='./assets/TagMe_demo.gif' width="200"  align="center"/>
+  <img src='./assets/TagMe_demo.gif' width="270"  align="center"/>
 
   <p align="center">
     <br />
