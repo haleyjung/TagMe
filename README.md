@@ -68,7 +68,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Base dependencies
 
-- [axios](https://github.com/axios/axios) for networking.
+- [firebase](https://github.com/firebase/) for networking and realtime database.
 - [react-native-config](https://github.com/luggit/react-native-config) to manage envionments.
 - [react-navigation](https://reactnavigation.org/) navigation library.
 - [jest](https://facebook.github.io/jest/) and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/) for testing.
@@ -95,8 +95,11 @@ To get a local copy up and running follow these simple example steps.
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
 ## Styleguide
+
 For coding styling, we decided to go with ESLint and [React Native community's styleguide](https://github.com/facebook/react-native/tree/main/packages/eslint-config-react-native-community#readme).
+
 ## Contributing
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
