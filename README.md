@@ -1,29 +1,18 @@
-<!-- [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
- -->
-
-<!-- PROJECT LOGO -->
 <div align="center">
 <h1 align="center">#TagMe</h1>
 <br />
-  <img src='https://user-images.githubusercontent.com/73789849/167066252-35f68f93-1561-494e-bbca-24f351babd11.png' width="300" height="300" align="center"/>
-  <br />
+  <img src='./assets/TagMe_demo.gif' width="200"  align="center"/>
+
   <p align="center">
     <br />
-    <a href="https://github.com/haleyjung/TagMe">View Demo</a>
-    ·
     <a href="https://github.com/haleyjung/TagMe/issues">Report Bug</a>
     ·
     <a href="https://github.com/haleyjung/TagMe/issues">Request Feature</a>
   </p>
 </div>
 
+---
 
-<!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -50,24 +39,20 @@
   </ol>
 </details>
 
-
-
-<!-- ABOUT THE PROJECT -->
+---
 ## About The Project
 
 **#TagMe** is an iOS app that generates hashtags from photos users upload. It uses Google Cloud Vision API's label detection, which processes machine learning analysis to extract information about entities in the uploaded image. The labels with the highest topicality score are modified into hashtags and become readily available for users to save and curate their own hashtag collection.
 
-This is a minimum viable product that was ideated and exeucted in 48 hours. 
+This is a minimum viable product that was ideated and exeucted in 48 hours.
 
-### Built With
+### Tech Stack
 
 ![React Native](https://img.shields.io/badge/-React_Native-61DAFB?logo=react&logoColor=white&style=for-the-badge)
 ![Expo](https://img.shields.io/badge/-Expo-000020?logo=expo&logoColor=white&style=for-the-badge)
 ![Firebase](https://img.shields.io/badge/-Firebase-FFC300?logo=firebase&logoColor=white&style=for-the-badge)
 ![Babel](https://img.shields.io/badge/-Babel-F9DC3E?logo=babel&logoColor=white&style=for-the-badge)
 
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -107,27 +92,11 @@ To get a local copy up and running follow these simple example steps.
     export const DB_URL = 'PASTE_YOUR_URL';
    ```
 
-<!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<!-- Styleguid -->
 ## Styleguide
 For coding styling, we decided to go with ESLint and [React Native community's styleguide](https://github.com/facebook/react-native/tree/main/packages/eslint-config-react-native-community#readme).
-
-<!-- CONTRIBUTING -->
 ## Contributing
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
