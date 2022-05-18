@@ -92,10 +92,6 @@ To get a local copy up and running follow these simple example steps.
     export const DB_URL = 'PASTE_YOUR_URL';
    ```
 
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
 ## Styleguide
 
 For coding styling, we decided to go with ESLint and [React Native community's styleguide](https://github.com/facebook/react-native/tree/main/packages/eslint-config-react-native-community#readme).
