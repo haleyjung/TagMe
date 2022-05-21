@@ -40,7 +40,7 @@
 
 **#TagMe** is an iOS app that generates hashtags from photos users upload. It uses Google Cloud Vision API's label detection, which processes machine learning analysis to extract information about entities in the uploaded image. The labels with the highest topicality score are modified into hashtags and become readily available for users to save and curate their own hashtag collection.
 
-This is a minimum viable product that was ideated and exeucted in 48 hours.
+This is a minimum viable product that was ideated and exeucted in 36 hours.
 
 ### Tech Stack
 
